@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Inter', sans-serif;
+
+  background: #f1f5f9;
+
+  color: #1e293b;
+}
+
+
+/* =========================================================
+   LAMPU INDICATOR UMUM
+   ========================================================= */
+
+.indicator {
+  width: 16px;
+  height: 16px;
+
+  min-width: 16px;
+
+  border-radius: 50%;
+
+  display: block;
+
+  flex-shrink: 0;
+
+  border: 2px solid #ffffff;
+}
+
+
+/* =========================================================
+   LAMPU MATI
+   ========================================================= */
+
+.indicator-off {
+  background: #cbd5e1;
+
+  opacity: 1;
+
+  box-shadow: none;
+
+  animation: none !important;
+}
+
+
+/* =========================================================
+   LAMPU REQUEST UMUM
+   ========================================================= */
+
+.indicator-green {
+  background: #16a34a;
+
+  animation:
+    blinkGreen 0.8s steps(1, end) infinite;
+}
+
+
+/* =========================================================
+   LAMPU RETURN UMUM
+   ========================================================= */
+
+.indicator-red {
+  background: #dc2626;
+
+  animation:
+    blinkRed 0.8s steps(1, end) infinite;
+}
+
+
+/* =========================================================
+   ANIMASI REQUEST UMUM
+   ========================================================= */
+
+@keyframes blinkGreen {
+
+  0% {
+    background: #16a34a;
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 2px rgba(22, 163, 74, 0.15);
+  }
+
+  50% {
+    background: #bbf7d0;
+
+    opacity: 0.45;
+
+    box-shadow: none;
+  }
+
+  100% {
+    background: #16a34a;
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 2px rgba(22, 163, 74, 0.15);
+  }
+
+}
+
+
+/* =========================================================
+   ANIMASI RETURN UMUM
+   ========================================================= */
+
+@keyframes blinkRed {
+
+  0% {
+    background: #dc2626;
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 2px rgba(220, 38, 38, 0.15);
+  }
+
+  50% {
+    background: #fecaca;
+
+    opacity: 0.45;
+
+    box-shadow: none;
+  }
+
+  100% {
+    background: #dc2626;
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 2px rgba(220, 38, 38, 0.15);
+  }
+
+}
+
+
+/* =========================================================
+   ADMIN CARD
+   ========================================================= */
+
+.admin-card {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+
+  gap: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 28px;
+
+  padding: 24px;
+
+  margin-bottom: 18px;
+
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.06);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.admin-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.09);
+}
+
+
+/* =========================================================
+   BAGIAN LAMPU DI KANAN ADMIN
+   ========================================================= */
+
+.indicator-container {
+  width: 105px;
+
+  min-width: 105px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border-left: 1px solid #e2e8f0;
+
+  padding-left: 20px;
+}
+
+
+/* =========================================================
+   LAMPU ADMIN
+   ========================================================= */
+
+.indicator-light {
+  width: 30px;
+
+  height: 30px;
+
+  min-width: 30px;
+
+  border-radius: 50%;
+
+  border: 3px solid #ffffff;
+
+  position: relative;
+
+  display: block;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LAMPU ADMIN MATI
+   ========================================================= */
+
+.indicator-light.indicator-off {
+  background: #cbd5e1;
+
+  opacity: 1;
+
+  box-shadow: none;
+
+  animation: none !important;
+}
+
+
+/* =========================================================
+   REQUEST ADMIN - HIJAU
+   ========================================================= */
+
+.indicator-light.indicator-request {
+  background: #16a34a;
+
+  opacity: 1;
+
+  animation:
+    adminGreenBlink 0.9s steps(1, end) infinite;
+}
+
+
+/* =========================================================
+   RETURN ADMIN - MERAH
+   ========================================================= */
+
+.indicator-light.indicator-return {
+  background: #dc2626;
+
+  opacity: 1;
+
+  animation:
+    adminRedBlink 0.9s steps(1, end) infinite;
+}
+
+
+/* =========================================================
+   ADMIN GREEN BLINK
+   ========================================================= */
+
+@keyframes adminGreenBlink {
+
+  0% {
+    background: #16a34a;
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 3px rgba(22, 163, 74, 0.15);
+  }
+
+  50% {
+    background: #bbf7d0;
+
+    opacity: 0.35;
+
+    box-shadow: none;
+  }
+
+  100% {
+    background: #16a34a;
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 3px rgba(22, 163, 74, 0.15);
+  }
+
+}
+
+
+/* =========================================================
+   ADMIN RED BLINK
+   ========================================================= */
+
+@keyframes adminRedBlink {
+
+  0% {
+    background: #dc2626;
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 3px rgba(220, 38, 38, 0.15);
+  }
+
+  50% {
+    background: #fecaca;
+
+    opacity: 0.35;
+
+    box-shadow: none;
+  }
+
+  100% {
+    background: #dc2626;
+
+    opacity: 1;
+
+    box-shadow:
+      0 0 0 3px rgba(220, 38, 38, 0.15);
+  }
+
+}
+
+
+/* =========================================================
+   TEKS INDIKATOR
+   ========================================================= */
+
+.indicator-text {
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   DATA LABEL
+   ========================================================= */
+
+.data-label {
+  font-size: 13px;
+
+  color: #64748b;
+
+  margin-bottom: 5px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   DATA VALUE
+   ========================================================= */
+
+.data-value {
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: #1e293b;
+}
+
+
+/* =========================================================
+   ACTUAL / ACT INPUT
+   ========================================================= */
+
+.admin-act-input {
+  width: 100%;
+
+  margin-top: 8px;
+
+  padding: 14px 16px;
+
+  border: 2px solid #e2e8f0;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  color: #1e293b;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.admin-act-input:hover {
+  border-color: #cbd5e1;
+}
+
+
+.admin-act-input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   CONFIRM REQUEST
+   ========================================================= */
+
+.admin-confirm-request {
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+
+.admin-confirm-request:hover {
+  background: #1d4ed8;
+}
+
+
+.admin-confirm-request:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   RECEIVE RETURN
+   ========================================================= */
+
+.admin-confirm-return {
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: #dc2626;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+
+.admin-confirm-return:hover {
+  background: #b91c1c;
+}
+
+
+.admin-confirm-return:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   REQUEST CARD
+   ========================================================= */
+
+.request-card {
+  border-left: 4px solid #22c55e;
+}
+
+
+/* =========================================================
+   RETURN CARD
+   ========================================================= */
+
+.return-card {
+  border-left: 4px solid #ef4444;
+}
+
+
+/* =========================================================
+   LEGEND / KETERANGAN
+   ========================================================= */
+
+.legend-dot {
+  width: 10px;
+
+  height: 10px;
+
+  min-width: 10px;
+
+  border-radius: 50%;
+
+  display: block;
+}
+
+
+.legend-green {
+  background: #16a34a;
+}
+
+
+.legend-red {
+  background: #dc2626;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+
+  height: 7px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+
+/* =========================================================
+   BUTTON EFFECT
+   ========================================================= */
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+button:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+input,
+select,
+textarea {
+  font-family: 'Inter', sans-serif;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .indicator {
+    width: 18px;
+
+    height: 18px;
+
+    min-width: 18px;
+  }
+
+
+  .admin-card {
+    padding: 18px;
+
+    gap: 12px;
+
+    border-radius: 22px;
+  }
+
+
+  .indicator-container {
+    width: 60px;
+
+    min-width: 60px;
+
+    padding-left: 10px;
+  }
+
+
+  .indicator-light {
+    width: 25px;
+
+    height: 25px;
+
+    min-width: 25px;
+  }
+
+
+  .indicator-text {
+    font-size: 8px;
+  }
+
+
+  .data-value {
+    font-size: 14px;
+  }
+
+
+  .admin-act-input {
+    padding: 13px;
+
+    font-size: 17px;
+  }
+
+}
